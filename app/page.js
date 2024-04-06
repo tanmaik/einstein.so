@@ -6,61 +6,46 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 export default function Home() {
   return (
     <div className="flex justify-center">
-      <div>
-        <div
-          className={`w-full sm:w-[60rem] px-4 sm:px-40 ${jakarta.className}`}
-        >
-          <nav className="py-3 border-b flex justify-between">
-            <div className="flex gap-2 items-center">
-              <Image
-                src="/logo.png"
-                width={500}
-                height={500}
-                className="w-8 h-8"
-                alt="Einstein Logo"
-              />
-              <h1 className="font-bold">Einstein</h1>
-            </div>
-            <div className="flex gap-6 items-center font-semibold">
-              <a href="/">Updates</a>
-              <a href="/">Pricing</a>
-              <button>
-                <a>Login</a>
-              </button>
-              <button className="bg-[#3365F9] text-white px-3 py-1 rounded-full">
-                Sign up
-              </button>
-            </div>
-          </nav>
-
-          <h1 className="mt-20 text-4xl font-semibold leading-normal">
-            Conducting and sharing research hasn&apos;t changed since the 2000s.
-          </h1>
-          <h3 className="mt-2 text-xl font-semibold leading-normal">
-            Einstein is working on bringing it to modern world.
-          </h3>
-
-          <div className="flex gap-4 mt-5 items-center">
-            <button className="bg-[#871AE5] font-semibold text-white px-3 py-1 rounded-full">
-              Get early access
-            </button>
-            <p className="font-semibold text-slate-500">
-              Currently in development
-            </p>
+      <div className="w-full sm:w-[65rem] px-4">
+        <nav className="py-4 flex justify-between">
+          <div className="flex gap-2 items-center">
+            <Image
+              src="/logo.png"
+              width={50}
+              height={50}
+              className="w-6 h-6"
+              alt="Einstein logo"
+            />
+            <h1 className="font-semibold">Einstein</h1>
           </div>
-        </div>
-        <div className="flex justify-center">
-          <Image
-            src="/graphic.png"
-            height={1000}
-            width={1000}
-            alt="Microsoft products"
-          />
-        </div>
-        <div
-          className={`sm:w-[60rem] px-4 sm:px-40 mt-10 text-sm text-slate-500 font-medium ${jakarta.className}`}
-        >
-          <p>© Ashburn Computing Company 2024. All rights reserved.</p>
+          <div className="flex gap-6 font-medium items-center">
+            <a href="/">Updates</a>
+            <a href="/">Pricing</a>
+            <a href="/">Log in</a>
+            <button className="px-3 py-1 rounded-full bg-blue-500 hover:bg-blue-400 transition text-white">
+              Sign up
+            </button>
+          </div>
+        </nav>
+        <div className={`${jakarta.className} mt-40`}>
+          <h1 className="text-center text-6xl font-semibold leading-tight">
+            Redefining the way
+            <br />
+            you research.
+          </h1>
+          <p className="text-center font-medium text-gray-600 text-lg mt-6">
+            Innovating on last century&apos;s ancient research software.
+            <br />
+            Sharing and conducting research has never been any easier.
+          </p>
+          <div className="flex justify-center mt-4">
+            <input
+              type="text"
+              className="ring-1 rounded-full px-4 py-2 text-lg ring-gray-300 font-medium"
+              placeholder="Email"
+            />
+            <button></button>
+          </div>
         </div>
       </div>
     </div>
