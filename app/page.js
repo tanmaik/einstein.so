@@ -38,13 +38,15 @@ export default function Home() {
             <br />
             Sharing and conducting research has never been any easier.
           </p>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-6 font-semibold -space-x-20">
             <input
               type="text"
-              className="ring-1 rounded-full px-4 py-2 text-lg ring-gray-300 font-medium"
+              className="ring-1 rounded-full px-5 py-1  text-lg ring-gray-300 font-medium"
               placeholder="Email"
             />
-            <button></button>
+            <button className="rounded-full px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white">
+              Join waitlist
+            </button>
           </div>
         </div>
       </div>
