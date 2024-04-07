@@ -1,55 +1,84 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-import { Plus_Jakarta_Sans } from "next/font/google";
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
+// Importing icons as before
+import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
 
 export default function Home() {
+  // Animation variants for the logo and text
+  const logoVariants = {
+    hidden: { scale: 0.9, opacity: 0 },
+    visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  // Animation for headings
+  const headingVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { delay: 0.3, duration: 0.5 } },
+  };
+
+  // Animation for text and button
+  const textButtonVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { delay: 0.5, duration: 0.5 } },
+  };
+
+  // Hover effect for "Book a call"
+  const bookCallHover = {
+    hover: { scale: 1.05, transition: { duration: 0.3 } },
+  };
+
   return (
-    <div className="flex justify-center">
-      <div className="w-full sm:w-[65rem] px-4">
-        <nav className="py-4 flex justify-between">
-          <div className="flex gap-2 items-center">
-            <Image
-              src="/logo.png"
-              width={50}
-              height={50}
-              className="w-6 h-6"
-              alt="Einstein logo"
-            />
-            <h1 className="font-semibold">Einstein</h1>
-          </div>
-          <div className="flex gap-6 font-medium items-center">
-            <a href="/">Updates</a>
-            <a href="/">Pricing</a>
-            <a href="/">Log in</a>
-            <button className="px-3 py-1 rounded-full bg-blue-500 hover:bg-blue-400 transition text-white">
-              Sign up
-            </button>
-          </div>
-        </nav>
-        <div className={`${jakarta.className} mt-40`}>
-          <h1 className="text-center text-6xl font-semibold leading-tight">
-            Redefining the way
-            <br />
-            you research.
-          </h1>
-          <p className="text-center font-medium text-gray-600 text-lg mt-6">
-            Innovating on last century&apos;s ancient research software.
-            <br />
-            Sharing and conducting research has never been any easier.
+    <motion.div
+      className="flex justify-center h-screen items-center"
+      initial="hidden"
+      animate="visible"
+    >
+      <div className="w-full sm:w-[45rem] px-4">
+        <motion.div className="flex gap-1 items-center" variants={logoVariants}>
+          <Image
+            src="/logo.png"
+            width={50}
+            height={50}
+            className="w-5 h-5"
+            alt="Einstein logo"
+          />
+          <p className="font-semibold">Einstein</p>
+        </motion.div>
+
+        <motion.h1
+          className="text-5xl mt-5 font-semibold"
+          variants={headingVariants}
+        >
+          Redefine the way <br />
+          you do research.
+        </motion.h1>
+
+        <motion.p className="font-medium mt-5" variants={textButtonVariants}>
+          From experimentation to publication
+          <br /> in the blink of an eye.
+        </motion.p>
+
+        <motion.button
+          className="pl-4 pr-24 py-2 text-left rounded-xl group bg-[#00A0FF] hover:bg-[#6cbeed] transition-all mt-4 font-semibold"
+          variants={textButtonVariants}
+        >
+          <p className="text-white flex text-xs items-center">
+            Find out more
+            <ArrowUpRightIcon className="w-5 h-5" />
           </p>
-          <div className="flex justify-center mt-6 font-semibold -space-x-20">
-            <input
-              type="text"
-              className="ring-1 rounded-full px-5 py-1  text-lg ring-gray-300 font-medium"
-              placeholder="Email"
-            />
-            <button className="rounded-full px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white">
-              Join waitlist
-            </button>
-          </div>
-        </div>
+          <p className="text-lg text-white font-semibold">Einstein is hiring</p>
+        </motion.button>
+        <motion.p
+          className="text-gray-500 text-sm mt-5"
+          whileHover="hover"
+          variants={bookCallHover}
+        >
+          Interested?{" "}
+          <span className="underline cursor-pointer">Book a call</span>
+        </motion.p>
       </div>
-    </div>
+    </motion.div>
   );
 }
