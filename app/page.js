@@ -1,84 +1,47 @@
 "use client";
+
 import Image from "next/image";
+import { Inter } from "next/font/google";
+
 import { motion } from "framer-motion";
 
-// Importing icons as before
-import { ArrowUpRightIcon } from "@heroicons/react/20/solid";
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  // Animation variants for the logo and text
-  const logoVariants = {
-    hidden: { scale: 0.9, opacity: 0 },
-    visible: { scale: 1, opacity: 1, transition: { duration: 0.5 } },
-  };
-
-  // Animation for headings
-  const headingVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { delay: 0.3, duration: 0.5 } },
-  };
-
-  // Animation for text and button
-  const textButtonVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { delay: 0.5, duration: 0.5 } },
-  };
-
-  // Hover effect for "Book a call"
-  const bookCallHover = {
-    hover: { scale: 1.05, transition: { duration: 0.3 } },
-  };
-
   return (
-    <motion.div
-      className="flex justify-center h-screen items-center"
-      initial="hidden"
-      animate="visible"
-    >
-      <div className="w-full sm:w-[45rem] px-4">
-        <motion.div className="flex gap-1 items-center" variants={logoVariants}>
+    <div className="flex justify-center">
+      <div className="text-center px-8">
+        <div className="flex items-center justify-center gap-1 mt-6">
           <Image
             src="/logo.png"
             width={50}
             height={50}
-            className="w-5 h-5"
+            className="h-5 w-5"
             alt="Einstein logo"
           />
-          <p className="font-semibold">Einstein</p>
-        </motion.div>
-
-        <motion.h1
-          className="text-5xl mt-5 font-semibold"
-          variants={headingVariants}
-        >
-          Redefine the way <br />
-          you do research.
-        </motion.h1>
-
-        <motion.p className="font-medium mt-5" variants={textButtonVariants}>
+          <p className={`${inter.className} font-semibold`}>Einstein</p>
+        </div>
+        <button className="rounded-full mt-20 text-sm ring-1 ring-gray-400 text-gray-400 font-medium px-2 py-1 cursor-help">
+          Closed beta
+        </button>
+        <h1 className="text-5xl tracking-tight mt-4 font-medium font-serif">
+          Revolutionize the way
+          <br />
+          you research.
+        </h1>
+        <p className="mt-4 leading-tight">
           From experimentation to publication
-          <br /> in the blink of an eye.
-        </motion.p>
+          <br />
+          at the snap of a finger.
+        </p>
 
-        <motion.button
-          className="pl-4 pr-24 py-2 text-left rounded-xl group bg-[#00A0FF] hover:bg-[#6cbeed] transition-all mt-4 font-semibold"
-          variants={textButtonVariants}
-        >
-          <p className="text-white flex text-xs items-center">
-            Find out more
-            <ArrowUpRightIcon className="w-5 h-5" />
-          </p>
-          <p className="text-lg text-white font-semibold">Einstein is hiring</p>
-        </motion.button>
-        <motion.p
-          className="text-gray-500 text-sm mt-5"
-          whileHover="hover"
-          variants={bookCallHover}
-        >
-          Interested?{" "}
-          <span className="underline cursor-pointer">Book a call</span>
-        </motion.p>
+        <div className="flex justify-center gap-2 items-center mt-4">
+          <button className="bg-gray-200 text-gray-400 cursor-not-allowed px-2 rounded-md font-medium">
+            Start for free
+          </button>
+          <p className="cursor-not-allowed text-gray-400">Book a demo</p>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
